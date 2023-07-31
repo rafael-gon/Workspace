@@ -1,0 +1,87 @@
+#-#-#-#-#-#-#-#-#-# Set #-#-#-#-#-#-#-#-#-#
+set $mod Mod4
+set $alt Mod1
+
+set $hdmi HDMI-A-1
+set $edp eDP-1
+
+set $term alacritty
+
+set $menu ulauncher
+
+set $lock swaylock \
+        --screenshots \
+        --clock \
+        --indicator \
+        --indicator-radius 300 \
+        --indicator-thickness 7 \
+        --effect-blur 7x5 \
+        --effect-vignette 0.5:0.5 \
+        --ring-color bb00cc00 \
+        --key-hl-color 88003300 \
+        --line-color 00000000 \
+        --inside-color 00000000 \
+        --separator-color 00000000 \
+        --inside-wrong-color 00000000 \
+        --line-wrong-color 00000000 \
+        --ring-wrong-color 00000000 \
+        --text-wrong-color ff0000 \
+         --inside-ver-color 00000000 \
+         --line-ver-color 00000000 \
+         --ring-ver-color 00000000 \
+         --text-ver-color 00ff00
+
+#-#-#-#-#-#-#-#-#-# General #-#-#-#-#-#-#-#-#-#
+font pango:monospace 8
+
+floating_modifier $mod normal
+
+include ~/.config/sway/config.d/*
+
+#-#-#-#-#-#-#-#-#-# Startup Exec #-#-#-#-#-#-#-#-#-#
+exec waybar
+
+exec avizo-service
+
+#-#-#-#-#-#-#-#-#-# Output #-#-#-#-#-#-#-#-#-#
+output * bg ~/.local/share/wallpapers/Wallpaper.png fill
+
+output HDMI-A-1 resolution 2560x1080 position 0,0
+output eDP-1 resolution 1920x1080 position 2560,0
+
+#-#-#-#-#-#-#-#-#-# Input #-#-#-#-#-#-#-#-#-#
+input "1267:12522:ELAN0B00:00_04F3:30EA_Touchpad" {
+  dwt enabled
+  tap enabled
+  natural_scroll enabled
+  middle_emulation enabled
+}
+
+input "1452:591:Keychron_Keychron_K3" {
+ xkb_layout "us"
+ xkb_variant "alt-intl"
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+ xkb_layout "br"
+ xkb_variant "abnt2"
+}
+
+#-#-#-#-#-#-#-#-#-# For Windows #-#-#-#-#-#-#-#-#-#
+for_window [class="^.*"] border pixel 3
+
+for_window [app_id="ulauncher"] border none; blur none
+
+for_window [app_id="pavucontrol"] floating enable; move position center
+
+for_window [app_id="float"] floating enable; move position center
+
+#-#-#-#-#-#-#-#-#-# Gaps #-#-#-#-#-#-#-#-#-#
+corner_radius 10
+blur enable
+
+smart_borders on
+smart_gaps off
+
+gaps outer 0
+gaps inner 10

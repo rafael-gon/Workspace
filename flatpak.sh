@@ -13,8 +13,7 @@ flatpak install flathub com.spotify.Client \
                 flathub com.discordapp.Discord \
                 flathub org.qbittorrent.qBittorrent \
                 flathub com.dropbox.Client \
-                flathub com.getmailspring.Mailspring \
-                flathub org.gnome.Boxes -y
+                flathub com.getmailspring.Mailspring -y
 
 xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-bittorrent
 xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-torrent

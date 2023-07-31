@@ -1,0 +1,85 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "modules-left": ["sway/workspaces"],
+    "modules-center": [ "clock"],
+    "modules-right": ["tray", "pulseaudio", "bluetooth", "network", "battery"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "disable-markup" : false,
+        "all-outputs": false,
+        "format": "  {icon}  ",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+            "11": "一",
+            "12": "二",
+            "13": "三",
+            "14": "四",
+            "15": "五",
+            "16": "六",
+            "17": "七",
+            "18": "八",
+            "19": "九",
+            "20": "十"
+        }
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%a, %b %d | %H:%m}",
+        "tooltip-format": "<big>{:%Y %B \t   week: %V }</big>\n<tt>{calendar}</tt>"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 20,
+            "critical": 7
+        },
+        "format": "{icon}",
+        "tooltip-format": "{capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "⚠",
+        "interval" : 7,
+        "tooltip": false,
+        "on-click": "alacritty --class='float' -e nmtui"
+    },
+        "bluetooth": {
+            "format": "{icon}",
+            "format-icons": {
+            "enabled": "󰂯",
+            "disabled": "󰂲"
+        },
+        "on-click": "alacritty --class='float' -e bluetuith"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "tooltip-format": "{volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
