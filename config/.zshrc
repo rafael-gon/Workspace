@@ -16,31 +16,35 @@ source $ZSH/oh-my-zsh.sh
 
 # ---------- ALIAS ---------- #
 alias ls="exa --icons"
-
 alias cat="bat --style=auto"
 
-alias update="flatpak update -y && yay -Syyuu --noconfirm"
-
 alias ips="ip -c a"
-
 alias ipup="ip -c -br a"
 
 alias size="du -sh * | sort -hr"
 
 alias mkdir="mkdir -pv"
+alias rm="rm -rf"
 
 alias off="shutdown now"
 
-alias rm="rm -rf"
-
+alias update="flatpak update -y && yay -Syyuu --noconfirm"
 alias install="yay -S"
-
 alias remove="yay -R"
-
 alias purge="yay -Rns"
 
-bindkey "^H" backward-kill-word
+alias clone="git clone"
+alias init="git init"
+alias status="git status"
+alias add="git add"
+alias commit="git commit -m"
+alias push="git push"
+alias remote="git remote add"
+alias branch="git branch"
+alias reset="git reset"
+alias checkout="git checkout"
 
+bindkey "^H" backward-kill-word
 bindkey "5~" kill-word
 
 # ---------- ZINIT ---------- #
