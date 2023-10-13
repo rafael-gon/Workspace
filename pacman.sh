@@ -5,6 +5,6 @@ vlc flatpak viewnior mousepad thunar thunar thunar-archive-plugin \
 thunar-media-tags-plugin thunar-shares-plugin thunar-volman \
 tumbler-extra-thumbnailers tumbler noto-fonts noto-fonts-cjk \
 noto-fonts-emoji noto-fonts-extra swaybg grim slurp xclip \
-wl-clipboard volumectl light pulseaudio pulseaudio-bluetooth \
-pamixer brightnessctl nerd-fonts-git ulauncher asdf-vm avizo \
+wl-clipboard light pulseaudio pulseaudio-bluetooth pamixer \
+brightnessctl nerd-fonts-git ulauncher asdf-vm avizo \
 visual-studio-code-bin insomnia android-studio --noconfirm
