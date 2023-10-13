@@ -16,7 +16,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  padding: 0 15px;
+  padding: 0 5px;
   color: #5b6078;
   font-weight: bold;
   border-bottom: 2px solid transparent;
@@ -38,20 +38,19 @@ window#waybar.hidden {
   background-color: #ed8796;
 }
 
-#battery,#network, #pulseaudio, #tray, #bluetooth {
+#battery,#network, #pulseaudio, #tray, #bluetooth, #custom-notification {
   padding: 0 10px;
   margin: 0 5px;
   font-size: 12px;
   color: #cad3f5;
 }
 
-#battery{
+#custom-notification{
   margin-right:15px;
 }
 
-
 tooltip label {
-  padding: 5px 10px;
+  padding: 10px 10px;
   color: #cad3f5;
   font-size: 16px;
 }
