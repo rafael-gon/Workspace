@@ -4,7 +4,7 @@
     "height": 24,
     "modules-left": ["sway/workspaces"],
     "modules-center": [ "clock"],
-    "modules-right": ["tray", "pulseaudio", "bluetooth", "network", "battery"],
+    "modules-right": ["tray", "pulseaudio", "bluetooth", "network", "battery", "custom/notification"],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-markup" : false,
@@ -33,13 +33,17 @@
             "20": "十"
         }
     },
+    "custom/notification": {
+    	"format": "",
+	"on-click": "swaync-client -t"
+    },
     "tray": {
         "icon-size": 14,
         "spacing": 10
     },
     "clock": {
         "format": "{:%a, %b %d | %H:%m}",
-        "tooltip-format": "<big>{:%Y %B \t   week: %V }</big>\n<tt>{calendar}</tt>"
+	"tooltip-format":"<tt>{calendar}</tt>"
     },
     "battery": {
         "states": {
@@ -48,7 +52,7 @@
             "critical": 7
         },
         "format": "{icon}",
-        "tooltip-format": "{capacity}%",
+        "tooltip-format": "false",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
@@ -69,7 +73,7 @@
     },
     "pulseaudio": {
         "format": "{icon}",
-        "tooltip-format": "{volume}%",
+        "tooltip-format": " {volume}%",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
