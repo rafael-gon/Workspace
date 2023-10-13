@@ -43,6 +43,7 @@ exec waybar
 
 exec avizo-service
 
+exec swaync
 #-#-#-#-#-#-#-#-#-# Output #-#-#-#-#-#-#-#-#-#
 output * bg ~/.local/share/wallpapers/Wallpaper.png fill
 
