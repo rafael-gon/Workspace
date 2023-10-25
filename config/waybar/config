@@ -2,12 +2,23 @@
     "layer": "top",
     "position": "top",
     "height": 24,
-    "modules-left": ["sway/workspaces"],
-    "modules-center": [ "clock"],
-    "modules-right": ["tray", "pulseaudio", "bluetooth", "network", "battery", "custom/notification"],
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "battery",
+        "custom/notification"
+    ],
     "sway/workspaces": {
         "disable-scroll": true,
-        "disable-markup" : false,
+        "disable-markup": false,
         "all-outputs": false,
         "format": "  {icon}  ",
         "format-icons": {
@@ -34,16 +45,19 @@
         }
     },
     "custom/notification": {
-    	"format": "",
-	"on-click": "swaync-client -t"
+        "format": "",
+        "on-click": "swaync-client -t",
+        "tooltip": false
     },
     "tray": {
         "icon-size": 14,
-        "spacing": 10
+        "spacing": 10,
+        "tooltip": false
     },
     "clock": {
-        "format": "{:%a, %b %d | %H:%m}",
-	"tooltip-format":"<tt>{calendar}</tt>"
+        "format": "{:%a, %b %d | %H:%M}",
+        "interval": 1,
+        "tooltip-format": "<tt>{calendar}</tt>"
     },
     "battery": {
         "states": {
@@ -52,23 +66,30 @@
             "critical": 7
         },
         "format": "{icon}",
-        "tooltip-format": "false",
-        "format-icons": ["", "", "", "", ""]
+        "tooltip": false,
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "network": {
         "format-wifi": "",
         "format-ethernet": "",
         "format-disconnected": "⚠",
-        "interval" : 7,
+        "interval": 7,
         "tooltip": false,
         "on-click": "alacritty --class='float' -e nmtui"
     },
-        "bluetooth": {
-            "format": "{icon}",
-            "format-icons": {
+    "bluetooth": {
+        "format": "{icon}",
+        "format-icons": {
             "enabled": "󰂯",
             "disabled": "󰂲"
         },
+        "tooltip": false,
         "on-click": "alacritty --class='float' -e bluetuith"
     },
     "pulseaudio": {
@@ -82,7 +103,10 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": [
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
     }

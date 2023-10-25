@@ -1,14 +1,23 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: Roboto,"Font Awesome 5", "SFNS Display",  Helvetica, Arial, sans-serif;
+  font-family: Roboto, "Font Awesome 5", "SFNS Display", Helvetica, Arial, sans-serif;
   font-size: 10px;
   min-height: 0;
 }
 
+/*
+--high  : #988BC7;
+--indi  : #44475a;
+--back  : #191622;
+--fore  : #E1E1E6;
+--red   : #E96379;
+--green : #67E480;
+*/
+
 window#waybar {
-  background: #181926;
-  color: #cad3f5;
+  background: #191622;
+  color: #E1E1E6;
 }
 
 window#waybar.hidden {
@@ -16,48 +25,53 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  padding: 0 5px;
-  color: #5b6078;
+  padding: 0 15px;
+  color: #44475a;
   font-weight: bold;
   border-bottom: 2px solid transparent;
 }
 
-#workspaces button:hover{
-  color:#c6a0f6;
+#workspaces button:hover {
+  color: #988BC7;
   box-shadow: none;
   text-shadow: none;
   background: none;
 }
 
 #workspaces button.focused {
-  color: #c6a0f6;
-  border-bottom: 2px solid #c6a0f6;
+  color: #988BC7;
+  border-bottom: 2px solid #988BC7;
 }
 
 #workspaces button.urgent {
-  background-color: #ed8796;
+  background-color: #E96379;
 }
 
-#battery,#network, #pulseaudio, #tray, #bluetooth, #custom-notification {
+#battery,
+#network,
+#pulseaudio,
+#tray,
+#bluetooth,
+#custom-notification {
   padding: 0 10px;
   margin: 0 5px;
   font-size: 12px;
-  color: #cad3f5;
+  color: #E1E1E6;
 }
 
-#custom-notification{
-  margin-right:15px;
+#custom-notification {
+  margin-right: 15px;
 }
 
 tooltip label {
   padding: 10px 10px;
-  color: #cad3f5;
+  color: #E1E1E6;
   font-size: 16px;
 }
 
 tooltip {
-  background: #181926;
-  border: 3px solid #b4befe;
+  background: #191622;
+  border: 3px solid #988BC7;
 }
 
 #clock {
@@ -65,19 +79,19 @@ tooltip {
 }
 
 #battery.charging {
-  color: #a6da95;
+  color: #67E480;
 }
 
 @keyframes blink {
   to {
-      background-color: #cad3f5;
-      color: #181926;
+    background-color: #E1E1E6;
+    color: #191622;
   }
 }
 
 #battery.critical:not(.charging) {
-  background: #ed8796;
-  color: #cad3f5;
+  background: #E96379;
+  color: #E1E1E6;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -86,9 +100,9 @@ tooltip {
 }
 
 #network.disconnected {
-  color: #ed8796;
+  color: #E96379;
 }
 
 #pulseaudio.muted {
-  color: #ed8796;
+  color: #E96379;
 }
