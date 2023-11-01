@@ -94,13 +94,13 @@ Icon=notion" >> ~/.local/share/applications/notion.desktop
 
     elif [ $displayServer = 6 ]; then
       # "---------- ---------- ---------- Hyprland ---------- ---------- ----------" #
-      yay -S hyprland-git pipewire wireplumber xdg-desktop-portal-hyprland-git thunar thunar thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin thunar-volman tumbler-extra-thumbnailers tumbler viewnior mousepad grim slurp xclip wl-clipboard light brightnessctl pamixer avizo ulauncher ly --noconfirm
+      yay -S hyprland-git pipewire wireplumber xdg-desktop-portal-hyprland-git thunar thunar thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin thunar-volman tumbler-extra-thumbnailers tumbler viewnior network-manager-applet blueman mousepad grim slurp xclip wl-clipboard light brightnessctl pamixer avizo ulauncher ly --noconfirm
       sudo -S <<< $geralPass systemctl enable ly
       sudo -S <<< $geralPass timedatectl set-ntp true
 
     elif [ $displayServer = 7 ]; then
       # "---------- ---------- ---------- Sway ---------- ---------- ----------" #
-      yay -S swayfx-git swaylock-effects thunar thunar thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin thunar-volman tumbler-extra-thumbnailers tumbler swaybg swaync-git pipewire wireplumber viewnior mousepad grim slurp xclip wl-clipboard light brightnessctl pamixer avizo ulauncher ly --noconfirm
+      yay -S swayfx-git swaylock-effects thunar thunar thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin thunar-volman tumbler-extra-thumbnailers tumbler network-manager-applet blueman swaybg swaync-git pipewire wireplumber viewnior mousepad grim slurp xclip wl-clipboard light brightnessctl pamixer avizo ulauncher ly --noconfirm
       sudo -S <<< $geralPass systemctl enable ly
       sudo -S <<< $geralPass timedatectl set-ntp true
 
