@@ -25,7 +25,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  padding: 0 15px;
+  padding: 0 12px;
   color: #44475a;
   font-weight: bold;
   border-bottom: 2px solid transparent;
@@ -50,13 +50,16 @@ window#waybar.hidden {
 #battery,
 #network,
 #pulseaudio,
-#tray,
 #bluetooth,
 #custom-notification {
-  padding: 0 10px;
-  margin: 0 5px;
+  padding: 0 8px;
+  margin: 0 10px;
   font-size: 12px;
   color: #E1E1E6;
+}
+
+#tray {
+  margin-right: 8px;
 }
 
 #custom-notification {

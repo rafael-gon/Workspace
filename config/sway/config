@@ -26,10 +26,10 @@ set $lock swaylock \
         --line-wrong-color 00000000 \
         --ring-wrong-color 00000000 \
         --text-wrong-color ff0000 \
-         --inside-ver-color 00000000 \
-         --line-ver-color 00000000 \
-         --ring-ver-color 00000000 \
-         --text-ver-color 00ff00
+        --inside-ver-color 00000000 \
+        --line-ver-color 00000000 \
+        --ring-ver-color 00000000 \
+        --text-ver-color 00ff00
 
 set $whatsapp ~/.local/share/nativefier/WhatsApp-linux-x64/WhatsApp
 
@@ -49,6 +49,10 @@ exec avizo-service
 
 exec swaync
 
+# exec nm-applet
+
+# exec blueman-applet
+
 exec $whatsapp
 
 exec discord
@@ -58,11 +62,11 @@ exec $notion
 exec swaymsg "workspace 1"
 
 #-#-#-#-#-#-#-#-#-# Output #-#-#-#-#-#-#-#-#-#
-output * bg ~/.local/share/wallpapers/Wallpaper_13.png fill
+output * bg ~/.local/share/wallpapers/Wallpaper_06.png fill
 
 # 2560X1080
-output HDMI-A-1 resolution 2560x1080 position 0,0
-output eDP-1 resolution 1920x1080 position 2560,0
+output HDMI-A-1 resolution 2560x1080 position 1920,0
+output eDP-1 resolution 1920x1080 position 0,0
 
 #-#-#-#-#-#-#-#-#-# Input #-#-#-#-#-#-#-#-#-#
 input "1267:12522:ELAN0B00:00_04F3:30EA_Touchpad" {
@@ -79,13 +83,13 @@ input type:pointer {
 }
 
 input "1452:591:Keychron_Keychron_K3" {
- xkb_layout "us"
- xkb_variant "alt-intl"
+  xkb_layout "us"
+  xkb_variant "alt-intl"
 }
 
 input "1:1:AT_Translated_Set_2_keyboard" {
- xkb_layout "us"
- xkb_variant "alt-intl"
+  xkb_layout "us"
+  xkb_variant "alt-intl"
 }
 
 #-#-#-#-#-#-#-#-#-# For Windows #-#-#-#-#-#-#-#-#-#
