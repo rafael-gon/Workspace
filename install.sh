@@ -1,16 +1,28 @@
 #!/bin/bash
+
+USER_HOME=$(eval echo ~$(whoami))
+
+sudo -v
+
+while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+done 2>/dev/null &
+
 whiptail --title "!!! WARNING !!!" --msgbox "To use this script you will need git and yay in your computer." 10 60
 
 # - - - - - Geral - - - - - #
 yay -Syyuu
 
 yay -S base-devel unzip unrar exa bat wget curl docker noto-fonts noto-fonts-cjk \
-       noto-fonts-emoji noto-fonts-extra bluez bluez-libs bluez-plugins bluez-utils \
-       flatpak asdf-vm nerd-fonts-git qbittorrent inkscape discord prismlauncher \
-       dropbox vlc visual-studio-code-bin insomnia nodejs-nativefier zsh starship \
-       alacritty gnome- wayland xorg-xwayland --noconfirm
+       noto-fonts-emoji noto-fonts-extra inter-font ttf-roboto ttf-ubuntu-font-family \
+       bluez bluez-libs bluez-plugins bluez-utils flatpak asdf-vm nerd-fonts-git \
+       qbittorrent inkscape discord prismlauncher dropbox vlc visual-studio-code-bin \
+       visual-studio-code-insiders-bin insomnia nodejs-nativefier zsh starship \
+       alacritty gnome-keyring wayland xorg-xwayland --noconfirm
 
-sudo systemctl enable bluetooth
+sudo -n systemctl enable bluetooth
 
 flatpak install flathub com.stremio.Stremio -y
 
@@ -18,9 +30,15 @@ xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-bittorrent
 xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-torrent
 xdg-mime default org.qbittorrent.qBittorrent.desktop x-scheme-handler/magnet
 
+sudo -n chown -R $(whoami) /opt/visual-studio-code
+
+sudo -n chown -R $(whoami) /opt/visual-studio-code-insiders
+
 mkdir -pv ~/.local/share/nativefier
 
-cd ~/.local/share/nativefier
+sudo -n chown -R $(whoami) "$USER_HOME/.local/share/nativefier"
+
+cd "$USER_HOME/.local/share/nativefier"
 
 nativefier --name "WhatsApp" 'web.whatsapp.com'
 nativefier --name "Notion" 'https://www.notion.so/'
@@ -31,25 +49,25 @@ echo "[Desktop Entry]
 Version=1.0
 Type=Application
 Terminal=false
-Exec=/home/rafael/.local/share/nativefier/WhatsApp-linux-x64/WhatsApp
+Exec=$USER_HOME/.local/share/nativefier/WhatsApp-linux-x64/WhatsApp
 Name=WhatsApp
 Comment=Simple, secure, reliable messaging and calling
-Icon=whatsapp" >> ~/.local/share/applications/whatsapp.desktop
+Icon=whatsapp" >> "$USER_HOME/.local/share/applications/whatsapp.desktop"
 
-sudo chmod +x ~/.local/share/applications/whatsapp.desktop
+sudo -n chmod +x "$USER_HOME/.local/share/applications/whatsapp.desktop"
 
 echo "[Desktop Entry]
 Version=1.0
 Type=Application
 Terminal=false
-Exec=/home/rafael/.local/share/nativefier/notion-linux-x64/notion
+Exec=$USER_HOME/.local/share/nativefier/notion-linux-x64/notion
 Name=Notion
 Comment=Connected workspace where better, faster work happens
-Icon=notion" >> ~/.local/share/applications/notion.desktop
+Icon=notion" >> "$USER_HOME/.local/share/applications/notion.desktop"
 
-sudo chmod +x ~/.local/share/applications/notion.desktop
+sudo -n chmod +x "$USER_HOME/.local/share/applications/notion.desktop"
 
-displayServer=$(whiptail --title "Rafael Script" --menu "What desktop environment do you like to use?" 15 60 3 "1" "Gnome" "2" "Plasma" "3" "Sway" 3>&1 1>&2 2>&3)
+displayServer=$(whiptail --title "Rafael Script" --menu "What desktop environment do you like to use?" 15 60 3 "1" "Gnome" "2" "Sway" "3" "Plasma" 3>&1 1>&2 2>&3)
 
 displayServerExit=$?
 
@@ -62,23 +80,27 @@ if [ $displayServerExit = 0 ]; then
           loupe nautilus snapshot sushi xdg-desktop-portal-gnome xdg-user-dirs-gtk gnome-tweaks file-roller \
           evince gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb  --noconfirm
 
-    xdg-mime query default inode/directory nautilus.desktop
+    cd /usr/share/applications
+    xdg-mime default nautilus.desktop inode/directory
 
-    sudo systemctl enable gdm
+    sudo -n systemctl enable gdm
 
   elif [ $displayServer = 2 ]; then
-    # "---------- ---------- ---------- Plasma ---------- ---------- ----------" #
+    # "---------- ---------- ---------- Sway ---------- ---------- ----------" #
     yay -S swayfx-git swaylock-effects thunar thunar thunar-archive-plugin thunar-media-tags-plugin \
           thunar-shares-plugin thunar-volman tumbler-extra-thumbnailers tumbler swaybg swaync-git \
-          pipewire wireplumber viewnior mousepad grim slurp xclip wl-clipboard light brightnessctl \
+          pipewire wireplumber viewnior mousepad grim slurp xarchiver xclip wl-clipboard light brightnessctl \
           pamixer avizo ulauncher ly waybar --noconfirm
 
-    xdg-mime query default inode/directory thunar.desktop
+    cd /usr/share/applications
+    xdg-mime default thunar.desktop inode/directory
 
-    sudo systemctl enable ly
+    sudo -n timedatectl set-ntp true
+
+    sudo -n systemctl enable ly
 
   elif [ $displayServer = 3 ]; then
-    # "---------- ---------- ---------- Sway ---------- ---------- ----------" #
+    # "---------- ---------- ---------- Plasma ---------- ---------- ----------" #
     yay -S plasma-desktop bluedevil discover dolphin latte-dock sddm okular ark spectacle gwenview \
           kdeconnect flatpak-kcm kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons \
           kgamma khotkeys kinfocenter kmenuedit kpipewire kscreen kscreenlocker ksystemstats kwin kwrited \
@@ -87,7 +109,7 @@ if [ $displayServerExit = 0 ]; then
           plasma-workspace-wallpapers plymouth-kcm polkit-kde-agent powerdevil sddm-kcm systemsettings \
           xdg-desktop-portal-kde libdbusmenu-glib packagekit-qt5 --noconfirm
 
-    sudo systemctl enable sddm
+    sudo -n systemctl enable sddm
 
   else
     echo "bye bye 😙."
@@ -95,3 +117,4 @@ if [ $displayServerExit = 0 ]; then
 else
   echo "bye bye 😙."
 fi
+kill "$!" 2>/dev/null
