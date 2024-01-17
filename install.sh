@@ -10,7 +10,14 @@ while true; do
     kill -0 "$$" || exit
 done 2>/dev/null &
 
-whiptail --title "!!! WARNING !!!" --msgbox "To use this script you will need git and yay in your computer." 10 60
+cd /tmp
+sudo -n pacman -S git
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+
+cd $USER_HOME
 
 # - - - - - Geral - - - - - #
 yay -Syyuu
@@ -24,6 +31,9 @@ yay -S base-devel unzip unrar exa bat wget curl docker noto-fonts noto-fonts-cjk
 
 sudo -n systemctl enable bluetooth
 
+sudo -n chown -R $(whoami) /opt/visual-studio-code
+sudo -n chown -R $(whoami) /opt/visual-studio-code-insiders
+
 flatpak install flathub com.stremio.Stremio -y
 
 xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-bittorrent
@@ -34,7 +44,7 @@ sudo -n chown -R $(whoami) /opt/visual-studio-code
 
 sudo -n chown -R $(whoami) /opt/visual-studio-code-insiders
 
-mkdir -pv ~/.local/share/nativefier
+mkdir -pv $USER_HOME/.local/share/nativefier
 
 sudo -n chown -R $(whoami) "$USER_HOME/.local/share/nativefier"
 
@@ -43,7 +53,7 @@ cd "$USER_HOME/.local/share/nativefier"
 nativefier --name "WhatsApp" 'web.whatsapp.com'
 nativefier --name "Notion" 'https://www.notion.so/'
 
-cd
+cd $USER_HOME
 
 echo "[Desktop Entry]
 Version=1.0
@@ -85,6 +95,8 @@ if [ $displayServerExit = 0 ]; then
 
     sudo -n systemctl enable gdm
 
+    kill "$!" 2>/dev/null
+
   elif [ $displayServer = 2 ]; then
     # "---------- ---------- ---------- Sway ---------- ---------- ----------" #
     yay -S swayfx-git swaylock-effects thunar thunar thunar-archive-plugin thunar-media-tags-plugin \
@@ -99,17 +111,19 @@ if [ $displayServerExit = 0 ]; then
 
     sudo -n systemctl enable ly
 
+    kill "$!" 2>/dev/null
+
   elif [ $displayServer = 3 ]; then
     # "---------- ---------- ---------- Plasma ---------- ---------- ----------" #
-    yay -S plasma-desktop bluedevil discover dolphin latte-dock sddm okular ark spectacle gwenview \
-          kdeconnect flatpak-kcm kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons \
-          kgamma khotkeys kinfocenter kmenuedit kpipewire kscreen kscreenlocker ksystemstats kwin kwrited \
-          layer-shell-qt libkscreen libksysguard milou plasma-browser-integration plasma-integration plasma-nm \
-          plasma-pa plasma-sdk plasma-systemmonitor plasma-thunderbolt plasma-vault plasma-workspace \
-          plasma-workspace-wallpapers plymouth-kcm polkit-kde-agent powerdevil sddm-kcm systemsettings \
-          xdg-desktop-portal-kde libdbusmenu-glib packagekit-qt5 --noconfirm
+    yay -S plasma-desktop bluedevil discover dolphin latte-dock sddm okular ark spectacle \
+           gwenview kdeconnect flatpak-kcm kde-gtk-config  kdeplasma-addons kinfocenter \
+           kpipewire kscreen kscreenlocker ksystemstats kwin plasma-nm plasma-pa plasma-sdk \
+           plasma-systemmonitor plasma-workspace sddm-kcm systemsettings xdg-desktop-portal-kde \
+           libdbusmenu-glib packagekit-qt5 --noconfirm
 
     sudo -n systemctl enable sddm
+
+    kill "$!" 2>/dev/null
 
   else
     echo "bye bye 😙."
@@ -117,4 +131,3 @@ if [ $displayServerExit = 0 ]; then
 else
   echo "bye bye 😙."
 fi
-kill "$!" 2>/dev/null
