@@ -41,20 +41,20 @@ thickness = 0.15
 unfocused_hollow = false
 
 [cursor.style]
-blinking = "never"
+blinking = "Never"
 shape = "Beam"
 
 [font]
 size = 16
 
 [font.bold]
-family = "FiraCode Nerd Font"
+family = "Ubuntu Mono"
 
 [font.italic]
-family = "FiraCode Nerd Font"
+family = "Ubuntu Mono"
 
 [font.normal]
-family = "FiraCode Nerd Font"
+family = "Ubuntu Mono"
 
 [window]
 opacity = 0.7

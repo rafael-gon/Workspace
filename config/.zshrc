@@ -16,6 +16,12 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # ---------- ALIAS ---------- #
+alias sudo="sudo"
+
+alias nvim="lvim"
+alias vim="lvim"
+alias vi="lvim"
+
 alias ls="exa --icons"
 alias cat="bat --style=auto"
 
@@ -35,15 +41,7 @@ alias remove="yay -R"
 alias purge="yay -Rns"
 
 alias clone="git clone"
-alias init="git init"
 alias status="git status"
-alias add="git add"
-alias commit="git commit -m"
-alias push="git push"
-alias remote="git remote add"
-alias branch="git branch"
-alias reset="git reset"
-alias checkout="git checkout"
 
 bindkey "^H" backward-kill-word
 bindkey "5~" kill-word

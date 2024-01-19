@@ -62,11 +62,11 @@ exec $notion
 exec swaymsg "workspace 1"
 
 #-#-#-#-#-#-#-#-#-# Output #-#-#-#-#-#-#-#-#-#
-output * bg ~/.local/share/wallpapers/Wallpaper_06.png fill
+output * bg ~/.local/share/wallpapers/Wallpaper_01.png fill
 
 # 2560X1080
-output HDMI-A-1 resolution 2560x1080 position 1920,0
-output eDP-1 resolution 1920x1080 position 0,0
+output HDMI-A-1 resolution 2560x1080 position 0,0
+output eDP-1 resolution 1920x1080 position 2560,0
 
 #-#-#-#-#-#-#-#-#-# Input #-#-#-#-#-#-#-#-#-#
 input "1267:12522:ELAN0B00:00_04F3:30EA_Touchpad" {

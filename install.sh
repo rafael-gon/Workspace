@@ -11,7 +11,7 @@ while true; do
 done 2>/dev/null &
 
 cd /tmp
-sudo -n pacman -S git
+sudo -n pacman -S git --noconfirm
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -22,12 +22,12 @@ cd $USER_HOME
 # - - - - - Geral - - - - - #
 yay -Syyuu
 
-yay -S base-devel unzip unrar exa bat wget curl docker noto-fonts noto-fonts-cjk \
-       noto-fonts-emoji noto-fonts-extra inter-font ttf-roboto ttf-ubuntu-font-family \
-       bluez bluez-libs bluez-plugins bluez-utils flatpak asdf-vm nerd-fonts-git \
-       qbittorrent inkscape discord prismlauncher dropbox vlc visual-studio-code-bin \
-       visual-studio-code-insiders-bin insomnia nodejs-nativefier zsh starship \
-       alacritty gnome-keyring wayland xorg-xwayland --noconfirm
+yay -S base-devel unzip unrar exa bat wget curl docker alacritty noto-fonts \
+       noto-fonts-cjk noto-fonts-emoji noto-fonts-extra inter-font ttf-roboto \
+       ttf-ubuntu-font-family bluez bluez-libs bluez-plugins bluez-utils flatpak \
+       asdf-vm nerd-fonts-git qbittorrent inkscape discord prismlauncher dropbox \
+       vlc visual-studio-code-bin visual-studio-code-insiders-bin insomnia neofetch \
+       nodejs-nativefier zsh starship google-chrome gnome-keyring wayland xorg-xwayland --noconfirm
 
 sudo -n systemctl enable bluetooth
 
