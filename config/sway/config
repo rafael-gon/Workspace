@@ -31,10 +31,6 @@ set $lock swaylock \
         --ring-ver-color 00000000 \
         --text-ver-color 00ff00
 
-set $whatsapp ~/.local/share/nativefier/WhatsApp-linux-x64/WhatsApp
-
-set $notion ~/.local/share/nativefier/notion-linux-x64/notion
-
 #-#-#-#-#-#-#-#-#-# General #-#-#-#-#-#-#-#-#-#
 font pango:monospace 8
 
@@ -53,11 +49,11 @@ exec swaync
 
 # exec blueman-applet
 
-exec $whatsapp
+exec flatpak run io.github.mimbrero.WhatsAppDesktop
 
 exec discord
 
-exec $notion
+exec flatpak run io.github.brunofin.Cohesion
 
 exec swaymsg "workspace 1"
 
@@ -69,7 +65,14 @@ output HDMI-A-1 resolution 2560x1080 position 0,0
 output eDP-1 resolution 1920x1080 position 2560,0
 
 #-#-#-#-#-#-#-#-#-# Input #-#-#-#-#-#-#-#-#-#
-input "1267:12522:ELAN0B00:00_04F3:30EA_Touchpad" {
+# input "1267:12522:ELAN0B00:00_04F3:30EA_Touchpad" {
+#   dwt enabled
+#   tap enabled
+#   natural_scroll enabled
+#   middle_emulation enabled
+# }
+
+input type:touchpad{
   dwt enabled
   tap enabled
   natural_scroll enabled
@@ -81,16 +84,20 @@ input type:pointer {
   pointer_accel 0
   natural_scroll enabled
 }
-
-input "1452:591:Keychron_Keychron_K3" {
+input type:keyboard {
   xkb_layout "us"
   xkb_variant "alt-intl"
 }
 
-input "1:1:AT_Translated_Set_2_keyboard" {
-  xkb_layout "us"
-  xkb_variant "alt-intl"
-}
+# input "1452:591:Keychron_Keychron_K3" {
+#   xkb_layout "us"
+#   xkb_variant "alt-intl"
+# }
+
+# input "1:1:AT_Translated_Set_2_keyboard" {
+#   xkb_layout "us"
+#   xkb_variant "alt-intl"
+# }
 
 #-#-#-#-#-#-#-#-#-# For Windows #-#-#-#-#-#-#-#-#-#
 for_window [class="^.*"] border pixel 3
@@ -99,11 +106,13 @@ for_window [app_id="ulauncher"] border none; blur none
 
 for_window [app_id="pavucontrol"] floating enable; move position center
 
+for_window [app_id="emote"] floating enable; move position center
+
 for_window [app_id="float"] floating enable; move position center
 
-for_window [class="whatsapp-nativefier-d40211"] move container to workspace $ws11
+for_window [class="whatsapp-desktop-linux"] move container to workspace $ws11
 for_window [class="discord"] move container to workspace $ws12
-for_window [class="notion-nativefier-46aee8"] move container to workspace $ws13
+for_window [class="cohesion"] move container to workspace $ws13
 
 #-#-#-#-#-#-#-#-#-# Gaps #-#-#-#-#-#-#-#-#-#
 corner_radius 8

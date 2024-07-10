@@ -23,13 +23,28 @@ cd $USER_HOME
 yay -Syyuu base-devel unzip unrar exa bat wget curl docker alacritty noto-fonts \
        noto-fonts-cjk noto-fonts-emoji noto-fonts-extra inter-font ttf-roboto \
        ttf-ubuntu-font-family bluez bluez-libs bluez-plugins bluez-utils \
-       flatpak asdf-vm nerd-fonts qbittorrent inkscape discord dropbox vlc \
+       flatpak asdf-vm nerd-fonts qbittorrent discord dropbox vlc \
        visual-studio-code-bin fastfetch zsh starship google-chrome \
        gnome-keyring wayland xorg-xwayland --noconfirm
 
 sudo -n systemctl enable bluetooth
 
-flatpak install flathub com.stremio.Stremio -y
+flatpak install flathub com.stremio.Stremio \
+                flathub flathub com.calibre_ebook.calibre \
+                flathub org.inkscape.Inkscape \
+                flathub com.spotify.Client \
+                flathub org.ppsspp.PPSSPP \
+                flathub org.duckstation.DuckStation \
+                flathub com.heroicgameslauncher.hgl \
+                flathub net.pcsx2.PCSX2 \
+                flathub org.prismlauncher.PrismLauncher \
+                flathub com.snes9x.Snes9x \
+                flathub org.telegram.desktop \
+                flathub io.github.mimbrero.WhatsAppDesktop \
+                flathub io.github.brunofin.Cohesion \
+                flathub org.gnome.Boxes \
+                flathub io.beekeeperstudio.Studio \
+                flathub me.timschneeberger.GalaxyBudsClient -y
 
 xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-bittorrent
 xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-torrent
@@ -61,10 +76,14 @@ if [ $displayServerExit = 0 ]; then
 
   elif [ $displayServer = 2 ]; then
     # "---------- ---------- ---------- Sway ---------- ---------- ----------" #
-    yay -S swayfx-git swaylock-effects thunar thunar-archive-plugin thunar-media-tags-plugin \
-           thunar-shares-plugin thunar-volman tumbler-extra-thumbnailers tumbler swaybg swaync-git \
-           pipewire wireplumber viewnior mousepad grim slurp xarchiver xclip wl-clipboard light brightnessctl \
-           pamixer avizo ulauncher ly waybar --noconfirm
+    yay -S swayfx-git swaylock-effects thunar thunar-archive-plugin \
+           thunar-media-tags-plugin thunar-shares-plugin thunar-volman \
+           tumbler-extra-thumbnailers tumbler swaybg swaync-git pipewire \
+           wireplumber pipewire-pulse viewnior grim slurp xarchiver xclip \
+           wl-clipboard light brightnessctl pamixer avizo ulauncher ly waybar \
+           lxappearance kvantum blueman pavucontrol --noconfirm
+    
+    flatpak install flathub com.tomjwatson.Emote -y
 
     xdg-mime default thunar.desktop inode/directory
     xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
@@ -96,3 +115,7 @@ if [ $displayServerExit = 0 ]; then
 else
   echo "bye bye 😙."
 fi
+
+
+# sudo nvim /etc/bluetooth/input.conf
+# ClassicBondedOnly=false
